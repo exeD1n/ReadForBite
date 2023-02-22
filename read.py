@@ -1,15 +1,15 @@
 import time
 
-def main(l):
+def main(i):
     start = time.time()
     
     with open('myfile3.bin', 'r') as fp:
-        chunk = fp.read(l)
+        chunk = fp.read(i)
         while chunk:
-            chunk = fp.read(l)
+            chunk = fp.read(i)
             
     end = (time.time() - start)
-    print(l, 'Байт при считывании программы заняло:', round(end, 3), 'Секунд')
+    print(i, 'Байт при считывании программы заняло:', round(end, 3), 'Секунд')
         
 
 if __name__ == '__main__':
