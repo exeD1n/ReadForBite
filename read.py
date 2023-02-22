@@ -1,14 +1,19 @@
-import time 
+import time
 
-start = time.time()
-
-#1, 16, 128, 512, 4096 и 16384 байт
-with open('myfile3.bin', 'r') as fp:
-    # читаем файл по 20 байт
-    chunk = fp.read(16384)
-    while chunk:
-        print(chunk)
-        chunk = fp.read(16384)
+def main(l):
+    start = time.time()
+    
+    with open('myfile3.bin', 'r') as fp:
+        chunk = fp.read(l)
+        while chunk:
+            chunk = fp.read(l)
+            
+    end = (time.time() - start)
+    print(l, 'Байт при считывании программы заняло:', round(end, 3), 'Секунд')
         
-end = (time.time() - start)/60
-print(end)
+
+if __name__ == '__main__':
+    l = [1, 16, 128, 512, 4096, 16384]
+    for i in l:
+        main(i)
+        
